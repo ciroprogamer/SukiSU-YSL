@@ -1,15 +1,40 @@
-not official implementation of SUkiSu ultra to Xiaomi ysl(Redmi S2, Redmi Y2)
+# SukiSU Ultra – Xiaomi ysl (Redmi S2 / Redmi Y2)
 
-cant belive finishing this took a month, well, makes sense since i didnt even knew C
-anyways, to build it, you can just use kernel_build_fixed.sh script
+**UNOFFICIAL PORT**  
+This is **NOT an official implementation of SukiSU Ultra or KernelSU**.  
+It is **not supported or endorsed** by the KernelSU/SukiSU developers.
 
+---
 
-it should work, or maybe not, it works for me, except the damn LSPosed for some reason
+I can't believe this took a month to finish —  
+but yeah, that makes sense since I didn’t even know C.
 
-there are a bunch of useless files in some folders, ignore it
+---
 
-backup your whole soul before using anything made by me.
+## Device
+- Xiaomi Redmi S2 / Redmi Y2 (`ysl`)
 
-kpm doesnt work without patch, and i havent tested it, who cares, modules and root should work
+## Build
+To build the kernel, just run:
+```bash
+./kernel_build_fixed.sh
 
-also, good luck.
+Does it work?
+
+Yes.
+Also no.
+It works for me, BUT backup your boot partition(and soul) before using anything I make.
+
+Status
+
+Root & modules:  working(As far as I tested)
+
+LSPosed:  refuses to cooperate and device gets stuck on Redmi boot splash (don’t ask me why)
+
+KPM:  doesn’t work without patches (untested, don’t care enough)
+
+## License
+This project is licensed under **GPL-2.0** (same as the Linux kernel).
+
+All original copyrights belong to their respective authors.  
+KernelSU / SukiSU code is used under its original license.
