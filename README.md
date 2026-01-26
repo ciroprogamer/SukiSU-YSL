@@ -33,8 +33,8 @@ LSPosed:  refuses to cooperate and device gets stuck on Redmi boot splash (don�
 
 KPM:  doesn’t work without patches (untested, don’t care enough)
 
-## License
-This project is licensed under **GPL-2.0** (same as the Linux kernel).
-
-All original copyrights belong to their respective authors.  
+## License And Credits
+This project is licensed under **GPL-2.0**).
+Kernel base: **StormBreaker kernel** for Xiaomi ysl  
+Linux kernel and all upstream code remain under **GPL-2.0**
 KernelSU / SukiSU code is used under its original license.
