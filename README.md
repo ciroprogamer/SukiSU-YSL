@@ -18,7 +18,7 @@ but yeah, that makes sense since I didn’t even know C.
 To build the kernel, just run:
 ```bash
 ./kernel_build_fixed.sh
-
+```
 Does it work?
 
 Yes.
