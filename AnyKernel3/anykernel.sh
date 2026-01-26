@@ -40,6 +40,7 @@ set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 dump_boot;
 
 
+
 write_boot;
 ## end install
 

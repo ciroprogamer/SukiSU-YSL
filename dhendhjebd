@@ -1,0 +1,28 @@
+#!/bin/bash
+echo "=== Complete Init.rc Hook Diagnostic ==="
+
+echo "[1] Check if hook was ever triggered..."
+adb shell su -c "dmesg | grep -E 'read init.rc|rc_count|append.*rc' || echo 'HOOK NEVER TRIGGERED'"
+
+echo ""
+echo "[2] Show full read_proxy function..."
+cd ~/kernel_xiaomi_ysl
+grep -B 5 -A 80 "^static ssize_t read_proxy" KernelSU/kernel/ksud.c
+
+echo ""
+echo "[3] Check kernel config for KSU options..."
+grep "CONFIG_KSU" .config 2>/dev/null || grep "CONFIG_KSU" arch/arm64/configs/ysl-perf_defconfig
+
+echo ""
+echo "[4] Check if kprobe is being used..."
+grep -n "kprobe\|kretprobe" KernelSU/kernel/kp_hook.c | head -20
+
+echo ""
+echo "[5] Check when hook is installed..."
+grep -B 10 -A 5 "register.*read_proxy\|install.*hook.*read" KernelSU/kernel/ksud.c KernelSU/kernel/kp_hook.c
+
+echo ""
+echo "[6] Check all dmesg KSU logs..."
+adb shell su -c "dmesg | grep -i kernelsu | tail -30"
+
+echo "=== Done ==="

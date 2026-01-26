@@ -456,8 +456,6 @@ ssize_t __vfs_read(struct file *file, char __user *buf, size_t count,
 }
 EXPORT_SYMBOL(__vfs_read);
 
-
-
 ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
 {
 	ssize_t ret;
@@ -583,10 +581,20 @@ static inline void file_pos_write(struct file *file, loff_t pos)
 		file->f_pos = pos;
 }
 
+#ifdef CONFIG_KSU
+extern void ksu_handle_sys_read(unsigned int fd);
+#endif
+
 SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)
 {
-	struct fd f = fdget_pos(fd);
-	ssize_t ret = -EBADF;
+	struct fd f;           // ← Declare at top
+	ssize_t ret = -EBADF;  // ← Declare at top
+	
+	#ifdef CONFIG_KSU
+		ksu_handle_sys_read(fd);  // ← ADD THIS LINE
+	#endif
+	
+	f = fdget_pos(fd);  // ← Initialize here instead
 
 	if (f.file) {
 		loff_t pos = file_pos_read(f.file);
