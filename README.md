@@ -29,7 +29,11 @@ It works for me, BUT backup your boot partition(and soul) before using anything 
 
 Root & modules:  working(As far as I tested)
 
-LSPosed:  refuses to cooperate and device gets stuck on Redmi boot splash (don’t ask me why)
+(found solution)LSPosed:  refuses to cooperate and device gets stuck on Redmi boot splash (don’t ask me why)
+IMPORTANT!!!
+Okay guys, hear me out, to make modules work a lot better, install Magic mount metamodule for kernelSU web, trust me with this no matter if your modules use mount operations or not.
+at least that is for me, this is very important, even f you are not using YSL, you might as well try it if you have boot hang problems.
+
 
 KPM:  doesn’t work without patches (untested, don’t care enough)
 
